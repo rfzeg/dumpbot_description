@@ -47,8 +47,12 @@ def generate_launch_description():
         parameters=[robot_description]
     )
 
-    spawn_robot_script = Node(package='dumpbot_description', executable='spawn_entity_client.py',
-             output='screen')
+    spawn_entity = Node(
+        package='gazebo_ros',
+        executable='spawn_entity.py',
+        arguments=['-entity', 'dumpbot', '-topic', 'robot_description'],
+        output='screen'
+    )
 
     return LaunchDescription([
         DeclareLaunchArgument(
@@ -66,5 +70,5 @@ def generate_launch_description():
 
         node_robot_state_publisher,
 
-        spawn_robot_script, 
+        spawn_entity,
     ])
