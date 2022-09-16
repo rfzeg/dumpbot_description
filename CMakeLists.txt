@@ -22,8 +22,14 @@ find_package(ament_cmake REQUIRED)
 # find_package(<dependency> REQUIRED)
 
 install(
-  DIRECTORY launch rviz urdf
+  DIRECTORY launch rviz urdf worlds
   DESTINATION share/${PROJECT_NAME}
+)
+
+install(
+  PROGRAMS
+  launch/spawn_entity_client.py
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 if(BUILD_TESTING)
