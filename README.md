@@ -6,7 +6,7 @@
 
 ## Description
 
-This ROS2 package contains a mobile robot model of cuboidal base, differential drive kinematics and two caster wheels.
+This ROS2 package contains a mobile robot model of cuboidal base, differential drive kinematics and two caster wheels. The robot model includes a differential drive plugin that subscribes to velocity commands and publishes odometry information.  
 
 ## Instructions
 
@@ -31,4 +31,10 @@ ros2 launch dumpbot_description dumpbot_description.launch.py
 To launch an empty Gazebo world and spawn the dumpbot robot:  
 ```
 ros2 launch dumpbot_description gazebo.launch.py
+```
+
+
+Send an example velocity command for testing:  
+```
+ros2 topic pub /demo/cmd_demo geometry_msgs/Twist '{linear: {x: 0.4}}' -1
 ```
